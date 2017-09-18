@@ -18,10 +18,6 @@ const initialState = {
               minitiebreak: false,
               tiebreak: false,
           }
-      },
-      game: {
-        deuce : false,
-        advantage : false,
       }
 }
 

@@ -9,6 +9,7 @@ import {BrowserRouter} from 'react-router-dom'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import players from './reducers'
+import 'semantic-ui-css/semantic.min.css';
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

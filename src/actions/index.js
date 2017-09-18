@@ -6,7 +6,6 @@ import {
     wonSet,
     playingMiniTieBreak,
     playingTieBreak,
-    isDeuce
 } from '../utils/helpers'
 export const GIVE_POINT = 'GIVE_POINT'
 export const GIVE_GEM = 'GIVE_GEM'
@@ -120,10 +119,8 @@ export function playTennis(player) {
     return (dispatch, getState) => {
         let players;
         players = getState();
-        console.log("state 0 before scoring the point", players.players.player1, players.players.player2)
 
         if (players.players.player1.tiebreak && players.players.player2.tiebreak) {
-            console.log("it's a tie break people")
             dispatch(givePoint(player))
             players = getState();
 
@@ -158,7 +155,6 @@ export function playTennis(player) {
 
                 dispatch(givePoint(player))
                 players = getState();
-                console.log("state 1 before winning the gem", players.players.player1, players.players.player2)
                 //one of the players wins a gem
 
                 if (winGem(players.players.player1.gamePoints, players.players.player2.gamePoints) || (winGem(players.players.player2.gamePoints, players.players.player1.gamePoints))) {
@@ -166,7 +162,6 @@ export function playTennis(player) {
                 }
                 //update the state after giving a gem
                 players = getState();
-                console.log("state 2 after winning the gem", players.players.player1, players.players.player2)
 
                 //one of the players wins a setState
                 if (wonSet(players.players.player1.gemPoints, players.players.player2.gemPoints) || (wonSet(players.players.player2.gemPoints, players.players.player1.gemPoints))) {
@@ -174,7 +169,6 @@ export function playTennis(player) {
                 }
                 //update the state after giving a set
                 players = getState();
-                console.log("state 3 after winning the set", players.players.player1, players.players.player2)
 
                 if (playingMiniTieBreak(players.players.player1.gemPoints, players.players.player2.gemPoints)) {
                     // dispatch(playTieBreak(player))
@@ -185,7 +179,6 @@ export function playTennis(player) {
                 if (playingTieBreak(players.players.player1.setPoints, players.players.player2.setPoints, players.players.player1.gemPoints, players.players.player2.gemPoints)) {
                     dispatch(activateTieBreak("player1"))
                     dispatch(activateTieBreak("player2"))
-                    console.log("i m playing tiebreak!")
                 }
 
                 if (wonMatch(players.players.player1.setPoints, players.players.player2.setPoints) || wonMatch(players.players.player2.setPoints, players.players.player1.setPoints)) {

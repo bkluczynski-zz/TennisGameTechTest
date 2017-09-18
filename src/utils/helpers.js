@@ -15,7 +15,7 @@ export function playingMiniTieBreak(player1GemPoints, player2GemPoints) {
 }
 
 export function wonMiniTieBreak(player1GamePoints, player2GamePoints) {
-    return ((player2GamePoints >= 7 || player2GamePoints == 6) && player2GamePoints - player1GamePoints >= 2)
+    return ((player2GamePoints >= 7 || player2GamePoints === 6) && player2GamePoints - player1GamePoints >= 2)
 }
 
 export function wonTieBreak(player1GemPoints, player2GemPoints) {
@@ -27,4 +27,32 @@ export function wonMatch(player1SetPoints, player2SetPoints) {
 
 export function isDeuce(player1Points, player2Points){
     return ((player1Points === 3 && player2Points === 3) || (player1Points > 3 && player1Points === player2Points))
+  }
+
+export const  beautifyScore = (player1,player2,minitiebreak) => {
+
+    if (minitiebreak){
+      return player1
+    } else {
+      if (player1 === 0 ) {
+        return 0
+      } else if (player1 === 1) {
+        return 15
+      } else if (player1 === 2) {
+        return 30
+      } else if (player1 === 3) {
+        return 40
+      } else if (player1 >= 4 ) {
+        if (isDeuce(player1,player2)){
+          return "40"
+        }
+        if (player1 > player2){
+          return "A"
+        } else if (player1 < player2){
+          return "40"
+        }
+
+        }
+    }
+
   }
