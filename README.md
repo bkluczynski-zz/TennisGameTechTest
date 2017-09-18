@@ -1,7 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-To run the client type `yarn start`
-To run app with node server type `npm run build` and `node server`
+This app has been written in React and Redux, Express and Semantic UI React
+
+- To run app type `yarn start`
+- To run app with node server type `npm run build` and `node server`
 
 
 ## Table of Contents
